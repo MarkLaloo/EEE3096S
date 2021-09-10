@@ -110,7 +110,7 @@ def setup():
     buzzer_pwm = GPIO.PWM(buzzer,1)
 
     led_pwm.start(0)
-    buzzer_pwm.start(0)
+    #buzzer_pwm.start(0)
     # Setup debouncing and callbacks
     GPIO.add_event_detect(btn_increase,GPIO.RISING,callback=btn_increase_pressed,bouncetime=200)
     GPIO.add_event_detect(btn_submit,GPIO.FALLING,callback=btn_guess_pressed,bouncetime=200)
@@ -198,6 +198,7 @@ def btn_increase_pressed(channel):
     # or just pull the value off the LEDs when a user makes a guess
     global currentGuess
     currentGuess+=1
+    #print(currentGuess)
     if currentGuess==0:
         GPIO.output(LED_value[0],0)
         GPIO.output(LED_value[1],0)
@@ -270,6 +271,8 @@ def btn_guess_pressed(channel):
     elif buttonTime>0.1:
         playerScore+=1
         accuracy_leds()
+        if abs(currentGuess-value)<=3:
+            trigger_buzzer()
         global playerName
     
     # if it's close enough, adjust the buzzer
@@ -309,13 +312,13 @@ def accuracy_leds():
     global value
     if currentGuess<value:
         led_duty = currentGuess/value*100
-        print(led_duty)
+        #print(led_duty)
     elif currentGuess>value:
         led_duty = (8-currentGuess)/(8-value)*100
-        print(led_duty)
+        #print(led_duty)
     else:
         led_duty=100
-        print(led_duty)
+        #print(led_duty)
     led_pwm.ChangeDutyCycle(led_duty)
     
     pass
@@ -328,17 +331,21 @@ def trigger_buzzer():
     # If the user is off by an absolute value of 3, the buzzer should sound once every second
     # If the user is off by an absolute value of 2, the buzzer should sound twice every second
     # If the user is off by an absolute value of 1, the buzzer should sound 4 times a second
-    temp = currentGuess-value
-    #buzzer_pwm.start(50)
+    #print('test1')
+    temp = currentGuess - value
+    buzzer_pwm.start(50)
     if abs(temp)==1:
-        buzzer_pwm.ChangeDutyCycle(50)
+        #buzzer_pwm.ChangeDutyCycle(50)
         buzzer_pwm.ChangeFrequency(4)
+        #print('test2')
     elif abs(temp)==2:
-        buzzer_pwm.ChangeDutyCycle(50)
+        #buzzer_pwm.ChangeDutyCycle(50)
         buzzer_pwm.ChangeFrequency(2)
+        #print('test3')
     elif abs(temp)==3:
-        buzzer_pwm.ChangeDutyCycle(50)
+        #buzzer_pwm.ChangeDutyCycle(50)
         buzzer_pwm.ChangeFrequency(1)
+        #print('test4')
     else:
         buzzer_pwm.stop()
     pass
