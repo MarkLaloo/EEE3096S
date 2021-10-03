@@ -286,6 +286,7 @@ def btn_guess_pressed(channel):
             GPIO.output(LED_value[0],0)
             GPIO.output(LED_value[1],0)
             GPIO.output(LED_value[2],0)
+            currentGuess=0
             led_pwm.ChangeDutyCycle(0)
             buzzer_pwm.ChangeDutyCycle(0)
             led_pwm.stop()
