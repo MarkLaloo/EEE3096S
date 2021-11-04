@@ -1,0 +1,401 @@
+$date
+	Thu Nov  4 18:59:22 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_simple_CPU $end
+$var reg 1 ! clk $end
+$var reg 20 " instruction [19:0] $end
+$var reg 1 # rst $end
+$scope module SCPU_DUT $end
+$var wire 1 ! clk $end
+$var wire 8 $ data_in_i [7:0] $end
+$var wire 20 % instruction [19:0] $end
+$var wire 8 & operand_a_i [7:0] $end
+$var wire 1 # rst $end
+$var wire 1 ' wen_i $end
+$var wire 1 ( sel3_i $end
+$var wire 1 ) sel1_i $end
+$var wire 8 * result2_i [7:0] $end
+$var wire 8 + result1_i [7:0] $end
+$var wire 8 , reg3 [7:0] $end
+$var wire 8 - reg2 [7:0] $end
+$var wire 8 . reg1 [7:0] $end
+$var wire 8 / reg0 [7:0] $end
+$var wire 32 0 pass_out [31:0] $end
+$var wire 8 1 operand_b_i [7:0] $end
+$var wire 8 2 operand_2_i [7:0] $end
+$var wire 8 3 operand_1_i [7:0] $end
+$var wire 4 4 opcode_i [3:0] $end
+$var wire 8 5 offset_i [7:0] $end
+$var wire 8 6 data_out_i [7:0] $end
+$scope module CU1 $end
+$var wire 1 ! clk $end
+$var wire 20 7 instr [19:0] $end
+$var wire 8 8 result2 [7:0] $end
+$var wire 1 # rst $end
+$var wire 32 9 pass_out [31:0] $end
+$var reg 20 : instruction [19:0] $end
+$var reg 8 ; offset [7:0] $end
+$var reg 4 < opcode [3:0] $end
+$var reg 8 = operand1 [7:0] $end
+$var reg 8 > operand2 [7:0] $end
+$var reg 1 ) sel1 $end
+$var reg 1 ( sel3 $end
+$var reg 4 ? state [3:0] $end
+$var reg 1 ' w_r $end
+$upscope $end
+$scope module alu1 $end
+$var wire 1 ! clk $end
+$var wire 4 @ opcode [3:0] $end
+$var wire 8 A operand_a [7:0] $end
+$var wire 8 B operand_b [7:0] $end
+$var reg 8 C result [7:0] $end
+$upscope $end
+$scope module data_memory $end
+$var wire 5 D addr [4:0] $end
+$var wire 1 ! clk $end
+$var wire 8 E data_in [7:0] $end
+$var wire 1 ' wen $end
+$var reg 8 F data_out [7:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx F
+bx E
+bx D
+bx C
+bx B
+bx A
+b1111 @
+b0 ?
+bx >
+bx =
+b1111 <
+bx ;
+b0 :
+b11000000100000000100000000 9
+bx 8
+b0 7
+bx 6
+bx 5
+b1111 4
+bx 3
+bx 2
+bx 1
+b11000000100000000100000000 0
+b0 /
+b1 .
+b10 -
+b11 ,
+bx +
+bx *
+0)
+0(
+0'
+bx &
+b0 %
+bx $
+1#
+b0 "
+1!
+$end
+#1000
+0!
+#2000
+1!
+#3000
+0#
+0!
+#4000
+1!
+#5000
+b1000111000000000000 "
+b1000111000000000000 %
+b1000111000000000000 7
+0!
+#6000
+b1 ?
+b1000111000000000000 :
+1!
+#7000
+0!
+#8000
+b11 1
+b11 B
+1)
+b0 4
+b0 <
+b0 @
+b0 5
+b0 ;
+b11 $
+b11 E
+b11 2
+b11 >
+b1 &
+b1 A
+b1 3
+b1 =
+b10 ?
+1!
+#9000
+0!
+#10000
+b100 *
+b100 8
+b100 D
+b100 +
+b100 C
+b11 $
+b11 E
+b11 2
+b11 >
+b1 &
+b1 A
+b1 3
+b1 =
+b1000 ?
+1!
+#11000
+0!
+#12000
+b100 /
+b11000000100000000100000100 0
+b11000000100000000100000100 9
+b11 $
+b11 E
+b11 2
+b11 >
+b1 &
+b1 A
+b1 3
+b1 =
+b1 ?
+1!
+#13000
+b1010011000000000000 "
+b1010011000000000000 %
+b1010011000000000000 7
+0!
+#14000
+b11 $
+b11 E
+b11 2
+b11 >
+b100 &
+b100 A
+b100 3
+b100 =
+b10 ?
+b1010011000000000000 :
+1!
+#15000
+0!
+#16000
+b111 *
+b111 8
+b111 D
+b111 +
+b111 C
+b1000 ?
+1!
+#17000
+0!
+#18000
+b111 .
+b11000000100000011100000100 0
+b11000000100000011100000100 9
+b1 ?
+1!
+#19000
+b1110010000000000001 "
+b1110010000000000001 %
+b1110010000000000001 7
+0!
+#20000
+b10 1
+b10 B
+b1 4
+b1 <
+b1 @
+b10 $
+b10 E
+b10 2
+b10 >
+b10 ?
+b1110010000000000001 :
+1!
+#21000
+0!
+#22000
+b10 *
+b10 8
+b10 D
+b10 +
+b10 C
+b1000 ?
+1!
+#23000
+0!
+#24000
+b10 ,
+b10000000100000011100000100 0
+b10000000100000011100000100 9
+b1 ?
+1!
+#25000
+b11011000000011110000 "
+b11011000000011110000 %
+b11011000000011110000 7
+0!
+#26000
+bx *
+bx 8
+b1111 1
+b1111 B
+1(
+0)
+b0 4
+b0 <
+b0 @
+b1111 5
+b1111 ;
+b111 $
+b111 E
+b111 2
+b111 >
+b10 &
+b10 A
+b10 3
+b10 =
+b10 ?
+b11011000000011110000 :
+1!
+#27000
+0!
+#28000
+b10001 D
+b10001 +
+b10001 C
+1'
+b100 ?
+1!
+#29000
+0!
+#30000
+0'
+b1 ?
+1!
+#31000
+b11001100000101100000 "
+b11001100000101100000 %
+b11001100000101100000 7
+0!
+#32000
+b10110 1
+b10110 B
+b111 *
+b111 8
+b111 6
+b111 F
+b10110 5
+b10110 ;
+b100 $
+b100 E
+b100 2
+b100 >
+b10 ?
+b11001100000101100000 :
+1!
+#33000
+0!
+#34000
+b11000 D
+1'
+b11000 +
+b11000 C
+b100 ?
+1!
+#35000
+0!
+#36000
+0'
+b1 ?
+1!
+#37000
+b10111000000011110000 "
+b10111000000011110000 %
+b10111000000011110000 7
+0!
+#38000
+b1111 1
+b1111 B
+b100 *
+b100 8
+b1111 5
+b1111 ;
+b10 $
+b10 E
+b10 2
+b10 >
+b100 6
+b100 F
+b10 ?
+b10111000000011110000 :
+1!
+#39000
+0!
+#40000
+b10001 D
+b10001 +
+b10001 C
+b100 ?
+1!
+#41000
+0!
+#42000
+b111 *
+b111 8
+b111 6
+b111 F
+b1000 ?
+1!
+#43000
+0!
+#44000
+b111 ,
+b111000000100000011100000100 0
+b111000000100000011100000100 9
+b111 6
+b111 F
+b1 ?
+1!
+#45000
+0!
+#46000
+b111 $
+b111 E
+b111 2
+b111 >
+b10 ?
+1!
+#47000
+0!
+#48000
+b100 ?
+1!
+#49000
+0!
+#50000
+b1000 ?
+1!
+#51000
+0!
